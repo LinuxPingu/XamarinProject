@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "323066678035",
+    "firebase_url": "https://burrosingles.firebaseio.com",
+    "project_id": "burrosingles",
+    "storage_bucket": "burrosingles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323066678035:android:5f0d5c5fcc135364daa8e6",
+        "android_client_info": {
+          "package_name": "com.companyname.XamarinProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323066678035-7pktqkdi18qvthm8ngp0idhtll76c9ln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.XamarinProject",
+            "certificate_hash": "d83a27dbfcf856283a54513c42ba209e97357255"
+          }
+        },
+        {
+          "client_id": "323066678035-9q1vbra418l6o7k0nnp44skk01gbb09p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkjM0V4XnCNpmjLDj-P_ewzAeW2jSVmDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323066678035-9q1vbra418l6o7k0nnp44skk01gbb09p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "323066678035-6fptgqdine594iv7la94pf5i9064tgp5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.XamarinProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

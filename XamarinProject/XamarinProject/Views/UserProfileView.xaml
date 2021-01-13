@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+              x:Class="XamarinProject.Views.UserProfileView"
+              xmlns:local="clr-namespace:XamarinProject" xmlns:maskededit="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns:behaviors="clr-namespace:XamarinProject.Views.Behaviors">
+    <!--Primer Pagina-->
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,12,0,0"/>
+            </OnPlatform>
+        </ContentPage.Padding>
+        <StackLayout VerticalOptions="Center">
+
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Informacion de tu cuenta" HorizontalOptions="Center" FontFamily="PressStart2P"/>
+
+                    <StackLayout Padding="40" Spacing="20">
+
+                        <Label  Text="Tu UID: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
+                        <inputLayout:SfTextInputLayout IsEnabled="False" LeadingViewPosition="Inside">
+                            <Entry Text="{Binding UID}"  />
+
+                            <inputLayout:SfTextInputLayout.LeadingView>
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Color="Black" Glyph="{x:Static local:IconClass.AddressCard}"/>
+                                    </Image.Source>
+                                </Image>
+                            </inputLayout:SfTextInputLayout.LeadingView>
+
+                        </inputLayout:SfTextInputLayout>
+
+                        <Label  Text="Email: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
+                        <inputLayout:SfTextInputLayout IsEnabled="{Binding EditingAccount}" LeadingViewPosition="Inside">
+                            <Entry Text="{Binding Email}" />
+
+                            <inputLayout:SfTextInputLayout.LeadingView>
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Color="Black" Glyph="{x:Static local:IconClass.MailBulk}"/>
+                                    </Image.Source>
+                                </Image>
+                            </inputLayout:SfTextInputLayout.LeadingView>
+                          
+                        </inputLayout:SfTextInputLayout>
+
+                        <Label  Text="Username: " HorizontalOptions="Start" FontFamily="PressStart2P" />
+                        <inputLayout:SfTextInputLayout IsEnabled="{Binding EditingAccount}" LeadingViewPosition="Inside">
+                            <Entry Text="{Binding Username}"/>
+
+                            <inputLayout:SfTextInputLayout.LeadingView>
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Color="Black" Glyph="{x:Static local:IconClass.User}"/>
+                                    </Image.Source>
+                                </Image>
+                            </inputLayout:SfTextInputLayout.LeadingView>
+
+                        </inputLayout:SfTextInputLayout>
+
+
+                        <Label  Text="Password: " HorizontalOptions="Start" FontFamily="PressStart2P" />
+                        <inputLayout:SfTextInputLayout IsEnabled="{Binding EditingAccount}" LeadingViewPosition="Inside" EnablePasswordVisibilityToggle="True">
+                            <Entry Text="{Binding Password}"  IsPassword="True"/>
+                            <inputLayout:SfTextInputLayout.LeadingView>
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Color="Black" Glyph="{x:Static local:IconClass.Lock}"/>
+                                    </Image.Source>
+                                </Image>
+                            </inputLayout:SfTextInputLayout.LeadingView>
+
+                        </inputLayout:SfTextInputLayout>
+
+                    </StackLayout>
+                    
+                    <Button Command="{Binding EditAccountCommand}"  Text="{Binding AccountBtnTxt}" ContentLayout="Left,5" BackgroundColor="{Binding AccountBtnClr,Mode=TwoWay}" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.Pen}" />
+                        </Button.ImageSource>
+                    </Button>
+                    
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage>
+
+    <!--Segunda Pagina-->
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,12,0,0"/>
+            </OnPlatform>
+        </ContentPage.Padding>
+        <StackLayout VerticalOptions="Center">
+
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Informacion Personal" HorizontalOptions="Center" FontFamily="PressStart2P"/>
+
+                    <StackLayout Padding="40" Spacing="20">
+
+                        <!--Nombre-->
+                        <Label  Text="Nombre: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
+                        <inputLayout:SfTextInputLayout IsEnabled="True" LeadingViewPosition="Inside">
+                            <Entry Text="{Binding Nombre}"  />
+
+                            <inputLayout:SfTextInputLayout.LeadingView>
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Color="Black" Glyph="{x:Static local:IconClass.CheckCircle}"/>
+                                    </Image.Source>
+                                </Image>
+                            </inputLayout:SfTextInputLayout.LeadingView>
+
+                        </inputLayout:SfTextInputLayout>
+
+                        <!--Apellidos-->
+
+                        <Label  Text="Apellidos: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
+                        <inputLayout:SfTextInputLayout IsEnabled="True" LeadingViewPosition="Inside">
+                            <Entry Text="{Binding Apellidos}"  />
+
+                            <inputLayout:SfTextInputLayout.LeadingView>
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Color="Black" Glyph="{x:Static local:IconClass.CheckCircle}"/>
+                                    </Image.Source>
+                                </Image>
+                            </inputLayout:SfTextInputLayout.LeadingView>
+
+                        </inputLayout:SfTextInputLayout>
+
+
+                        <!--Fecha-->
+                        <Label  Text="Fecha de Nacimiento: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
+                        <maskededit:SfMaskedEdit x:Name="MaskDate" Mask="00/00/0000" Value="{Binding FechaNac}"/>
+                       
+
+
+                        <!--Telefono-->
+
+                        <Label  Text="Telefono: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
+                        <inputLayout:SfTextInputLayout IsEnabled="True" LeadingViewPosition="Inside">
+                            <Entry Text="{Binding Telefono}"  />
+
+                            <inputLayout:SfTextInputLayout.LeadingView>
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Color="Black" Glyph="{x:Static local:IconClass.Phone}"/>
+                                    </Image.Source>
+                                </Image>
+                            </inputLayout:SfTextInputLayout.LeadingView>
+
+                        </inputLayout:SfTextInputLayout>
+
+
+
+                    </StackLayout>
+
+
+                    <Button Command="{Binding EditPersonalInfoCommand}"  Text="{Binding AccountBtnTxt}" ContentLayout="Left,5" BackgroundColor="{Binding AccountBtnClr,Mode=TwoWay}" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.Pen}" />
+                        </Button.ImageSource>
+                    </Button>
+
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage>
+
+
+    <!-- Tercera Pagina-->
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,12,0,0"/>
+            </OnPlatform>
+        </ContentPage.Padding>
+        <StackLayout VerticalOptions="Center">
+
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Tu Ubicacion Actual" HorizontalOptions="Center" FontFamily="PressStart2P"/>
+
+                    <StackLayout Padding="40" Spacing="20">
+
+                        <maps:Map x:Name="MyMap" WidthRequest="150" HeightRequest="150" >
+                            <maps:Map.Behaviors>
+                                <behaviors:MapBehavior 
+                    ItemsSource="{Binding lstLocations}"/>
+                            </maps:Map.Behaviors>
+                        </maps:Map>
+
+
+                    </StackLayout>
+
+                    <Button Command="{Binding EditUbicationCommand}" Margin="0,75"  Text="{Binding AccountBtnTxt}" ContentLayout="Left,5" BackgroundColor="{Binding AccountBtnClr,Mode=TwoWay}" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.Pen}" />
+                        </Button.ImageSource>
+                    </Button>
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage>
+
+</CarouselPage>

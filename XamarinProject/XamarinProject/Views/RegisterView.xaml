@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="XamarinProject.Views.RegisterView" xmlns:local="clr-namespace:XamarinProject">
+    <StackLayout VerticalOptions="Center">
+
+        <ScrollView>
+            <StackLayout>
+                <Image Source="logo.png" HeightRequest="250"  HorizontalOptions="Center"/>
+                <Label Text="Crea tu nueva cuenta" HorizontalOptions="Center" FontFamily="PressStart2P"/>
+
+                <StackLayout Padding="40" Spacing="20">
+
+                    <inputLayout:SfTextInputLayout
+                        Hint="Correo"
+                        HeightRequest="40">
+                        <Entry Text="{Binding User.Email}" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout
+                        Hint="Username"
+                        HeightRequest="40">
+                        <Entry Text="{Binding User.Username}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout
+                        Hint="Password"
+                        EnablePasswordVisibilityToggle="True"
+                        HeightRequest="40">
+                        <Entry IsPassword="True" Text="{Binding User.Password}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout
+                        Hint=" Confirmar Password"
+                        EnablePasswordVisibilityToggle="True"
+                        HeightRequest="40">
+                        <Entry IsPassword="True" Text="{Binding Confirmation}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <Button Text=" Registrarse"  Command="{Binding RegisterCommand}" ContentLayout="Left,5" BackgroundColor="Green" TextColor="White"  Margin="50" HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                        <Button.ImageSource>
+                            <FontImageSource  FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.Check}" />
+                        </Button.ImageSource>
+
+                    </Button>
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

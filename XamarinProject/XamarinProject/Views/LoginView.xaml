@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="XamarinProject.Views.LoginView"  xmlns:local="clr-namespace:XamarinProject">
+    
+    <StackLayout VerticalOptions="Center">
+        <ScrollView>
+            <StackLayout>
+                <Image Source="logo.png" HeightRequest="250"  HorizontalOptions="Center"/>
+                <Label Text="Welcome Back!" HorizontalOptions="Center" FontFamily="PressStart2P"/>
+                <StackLayout Padding="40" Spacing="20">
+
+                    <inputLayout:SfTextInputLayout
+                        Hint="Username">
+                        <Entry Text="{Binding Identifier}" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout
+                        Hint="Password"
+                        EnablePasswordVisibilityToggle="True">
+                        <Entry IsPassword="True" Text="{Binding Password}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <Button Text="Ingresar"
+                            HeightRequest="50"
+                            BackgroundColor="#006eff"
+                            TextColor="White"
+                            FontSize="Medium"
+                            CornerRadius="5"
+                            Command="{Binding LoginCommand}"
+                            />
+
+                    <Label Text="Olvidaste tu contraseña?"
+                           TextColor="#006eff"
+                           HorizontalOptions="Center"
+                           FontSize="Medium" />
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                        <BoxView BackgroundColor="#555"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="Center"
+                                 HeightRequest="1" />
+
+                        <Label Text="Ó"
+                               TextColor="#555"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+
+                        <BoxView BackgroundColor="#555" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1"  />
+
+                    </StackLayout>
+
+                    <Button Text="Crear Cuenta Nueva"
+                            HeightRequest="50"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            CornerRadius="5"
+                            HorizontalOptions="Center"
+                            WidthRequest="320" 
+                            Command="{Binding  EnterRegisterCommand}"
+                            />
+
+                    <Button Text="Ingreasr con Goolge" ContentLayout="Left,5" BackgroundColor="#ec0101" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                        <Button.ImageSource>
+                            <FontImageSource  FontFamily="{StaticResource BrandFontFamily}" Glyph="{x:Static local:IconClass.Google}" />
+                        </Button.ImageSource>
+
+                    </Button>
+
+                    <Button Text="Ingresar con Facebook" ContentLayout="Left,5"  BackgroundColor="#3b5998" TextColor="White"  HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                        <Button.ImageSource>
+                            <FontImageSource  FontFamily="{StaticResource BrandFontFamily}" Glyph="{x:Static local:IconClass.Facebook}" />
+                        </Button.ImageSource>
+
+                    </Button>
+
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+
+
+    </StackLayout>
+</ContentPage>

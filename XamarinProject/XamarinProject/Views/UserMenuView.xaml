@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:boder="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="XamarinProject.Views.UserMenuView"
+             xmlns:local="clr-namespace:XamarinProject"
+             x:Name="UserMenuPage"
+             Title="UserMenuView">
+    <!--Main Container-->
+    <StackLayout>
+
+        <!--Header-->
+        <StackLayout>
+            <StackLayout HeightRequest="150" 
+                                 Padding="20,40,0,0"
+                                  BackgroundColor="Aqua">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="49"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+
+                        <Grid HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center">
+
+                            <boder:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50">
+                                <Image  Source="userAlt.png"/>
+                            </boder:SfBorder>
+
+                        </Grid>
+
+
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="1">
+                        <StackLayout Margin="10,40" 
+                                         Spacing="1">
+                            <Label Text="{Binding Identifier}"
+                                       TextColor="Black"
+                                       FontSize="Medium"
+                                       FontFamily="PressStart2P"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+            
+                                       />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+
+
+        <!--Menu-->
+        <StackLayout>
+            <ListView x:Name="MenuItemsView"
+                  BackgroundColor="Transparent"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding LstMenu}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Name}" 
+                                    TextColor="Black"
+                                    Command="{Binding Path=BindingContext.EnterMenuOptionCommand, Source={x:Reference UserMenuPage}}"
+                                    CommandParameter="{Binding Id}"
+                                    ImageSource="{Binding Icon}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Button Text="Logout" Command="{Binding LogOutCommand}" ContentLayout="Left,5" BackgroundColor="#ec0101" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                        <Button.ImageSource>
+                            <FontImageSource  FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.DoorOpen}" />
+                        </Button.ImageSource>
+
+                    </Button>
+                </ListView.Footer>
+            </ListView>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

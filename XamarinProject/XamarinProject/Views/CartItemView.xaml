@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinProject.Views.CartItemView"
+             xmlns:local="clr-namespace:XamarinProject"
+             >
+    <ScrollView>
+        <StackLayout>
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+
+                <!--  profile image  -->
+                <Image HeightRequest="100" HorizontalOptions="Center" Source="{Binding SelectedItem.Image}" TranslationY="50" VerticalOptions="End" WidthRequest="100" />
+
+                <!--  Profile Name  -->
+                <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
+                    <Label Text="{Binding SelectedItem.Title}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!--  Social Stats Section  -->
+                <Grid Grid.Row="2" Margin="0,30" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout>
+                        <Label Text="{Binding SelectedItem.Description}"
+                               HorizontalOptions="Center"/>
+
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="{Binding SelectedItem.Price}"
+                               HorizontalOptions="Center"/>
+
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Column="2">
+                        <Label Text="{Binding Cantidad}"
+                               HorizontalOptions="Center"/>
+                        <Stepper Minimum="1" Increment="1" Value="{Binding Cantidad}"/>
+                        <Label Text="Cantidad"
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+
+                </Grid>
+
+               
+
+            </Grid>
+
+            <!--Actions-->
+            <StackLayout>
+                <Button Text="Agregar Item" Command="{Binding AddItemCommand}" ContentLayout="Left,5" BackgroundColor="LimeGreen" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource  FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.PlusCircle}" />
+                    </Button.ImageSource>
+                </Button>
+
+
+                <Button Text="Quitar Item" Command="{Binding  DeleteItemCommand}" ContentLayout="Left,5" BackgroundColor="Red" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource  FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.MinusCircle}" />
+                    </Button.ImageSource>
+                </Button>
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>

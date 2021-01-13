@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinProject.Views.StoreView"
+            xmlns:local="clr-namespace:XamarinProject"
+             x:Name="StoreViewPage">
+
+    <TabbedPage.Children>
+
+        <ContentPage Title="Tienda">
+            <StackLayout>
+                <ListView x:Name="StoreItemsView"
+                  BackgroundColor="Transparent"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding  LstStoreItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                       
+                                <ImageCell TextColor="#9b9b9b"
+                                   Text="{Binding Title}"
+                                   Detail="{Binding Price}"
+                                   ImageSource="{Binding Image}"
+                                   Command="{Binding Path=BindingContext.EnterItemDetailCommand, Source={x:Reference StoreViewPage}}"
+                                   CommandParameter="{Binding ItemID}"
+                                   /> 
+                       
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+        
+      
+        <ContentPage Title="Carrito">
+
+            <StackLayout>
+                <ListView x:Name="CartItemsView"
+                  BackgroundColor="Transparent"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding  LstItemsCarrito}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageCell TextColor="#9b9b9b"
+                                   Text="{Binding Title}"
+                                   Detail="{Binding Quantity}"
+                                   ImageSource="{Binding Image}"
+                                   Command="{Binding Path=BindingContext.EnterCartItemCommand, Source={x:Reference StoreViewPage}}"
+                                   CommandParameter="{Binding ItemID}"
+                                   />
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+      
+                <Button Text="Levantar Orden" Command="{Binding AddOrderCommand}" ContentLayout="Left,5" BackgroundColor="LimeGreen" TextColor="White"   HeightRequest="50" CornerRadius="5"  WidthRequest="320"  HorizontalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource  FontFamily="{StaticResource MaterialFontFamily}" Glyph="{x:Static local:IconClass.PlusCircle}" />
+                    </Button.ImageSource>
+                </Button>
+                
+            </StackLayout>
+           
+        
+
+        </ContentPage>
+        <ContentPage Title="Mis ordenes">
+
+
+
+            <StackLayout>
+                <ListView x:Name="OrderItemsView"
+                  BackgroundColor="Transparent"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding LstOrders}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageCell TextColor="#9b9b9b"
+                                   Text="{Binding Detail}"
+                                   Detail="{Binding Status}"
+                                   />
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </ContentPage>
+
+    </TabbedPage.Children>
+
+</TabbedPage>
