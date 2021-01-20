@@ -226,6 +226,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit.IOS">
       <Version>18.4.0.32</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Firebase.iOS.Auth">
       <Version>6.9.2</Version>
     </PackageReference>
