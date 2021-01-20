@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -120,6 +122,41 @@ namespace XamarinProject.ViewModels
 
 
         /* Informacion de Cuenta */
+
+        #region Media File
+
+        private MediaFileModel mediaFile = new MediaFileModel();
+
+        public MediaFileModel MediaFile
+        {
+            get{
+                return mediaFile;
+            }
+            set{
+                mediaFile = value;
+                OnPropertyChanged("MediaFile");
+            }
+        }
+
+        #endregion
+
+        #region ImgPath
+        private ImageSource imgPath= "userAlt.png";
+        public ImageSource ImgPath
+        {
+            get
+            {
+                return imgPath;
+            }
+            set
+            {
+                imgPath = value;
+                OnPropertyChanged("ImgPath");
+            }
+        }
+        
+
+        #endregion
 
         #region UID
 
@@ -370,6 +407,8 @@ namespace XamarinProject.ViewModels
             EditAccountCommand = new Command(this.editAccount);
             this.EditPersonalInfoCommand = new Command(this.editPersonalInfo);
             this.EditUbicationCommand = new Command(this.editUbication);
+            PickImgCommand = new Command(pickImg);
+           
         }
 
         public void InitClass()
@@ -380,14 +419,15 @@ namespace XamarinProject.ViewModels
             Console.WriteLine("Out Ubication: " + this.newLat + "," + this.newLong);
             
             lstLocations.Add(new UsersLocation { Latitude = 9.84350333333333, Longitude = -83.9727966666667, Description = "Tu ubicacion" });
-            
 
+            
         }
 
 
         public ICommand EditAccountCommand { get; set; }
         public ICommand EditPersonalInfoCommand { get; set; }
         public ICommand EditUbicationCommand { get; set; }
+        public ICommand PickImgCommand { get; set; }
 
         public async void editAccount()
         {
@@ -633,6 +673,33 @@ namespace XamarinProject.ViewModels
 
         }
 
+        public async void pickImg()
+        {
+            try
+            {
+                await CrossMedia.Current.Initialize();
+                MediaFileModel file = new MediaFileModel();
+
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "No se soporta la funcionalidad", "OK");
+                }
+                else
+                {
+                    var mediaOptions = new PickMediaOptions() { PhotoSize = PhotoSize.Medium };
+                    var selectedImage = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+                    this.ImgPath = ImageSource.FromStream(() => selectedImage.GetStream());
+                    await Application.Current.MainPage.DisplayAlert("Success", "Imagen Seleccionada", "OK");
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+            }
+
+        }
 
 
         CancellationTokenSource cts;

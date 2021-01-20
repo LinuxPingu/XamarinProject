@@ -18,6 +18,11 @@
 
                     <StackLayout Padding="40" Spacing="20">
 
+                        <Label  Text="Tu Imagen: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
+                        <Image Source="{Binding ImgPath}"/>
+                        <Button Text="Selecciona un Archivo" Command="{Binding PickImgCommand}" />
+
+
                         <Label  Text="Tu UID: " HorizontalOptions="Start" FontFamily="PressStart2P"/>
                         <inputLayout:SfTextInputLayout IsEnabled="False" LeadingViewPosition="Inside">
                             <Entry Text="{Binding UID}"  />
