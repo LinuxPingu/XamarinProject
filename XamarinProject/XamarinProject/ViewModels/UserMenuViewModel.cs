@@ -83,6 +83,24 @@ namespace XamarinProject.ViewModels
 
         #endregion
 
+        #region ImgPath
+        private ImageSource imgPath = "userAlt.png";
+        public ImageSource ImgPath
+        {
+            get
+            {
+                return imgPath;
+            }
+            set
+            {
+                imgPath = value;
+                OnPropertyChanged("ImgPath");
+            }
+        }
+
+
+        #endregion
+
         #endregion
 
         #region Inits

@@ -689,6 +689,8 @@ namespace XamarinProject.ViewModels
                     var mediaOptions = new PickMediaOptions() { PhotoSize = PhotoSize.Medium };
                     var selectedImage = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
                     this.ImgPath = ImageSource.FromStream(() => selectedImage.GetStream());
+                    UserMenuViewModel menu = UserMenuViewModel.GetInstance();
+                    menu.ImgPath = this.ImgPath;
                     await Application.Current.MainPage.DisplayAlert("Success", "Imagen Seleccionada", "OK");
 
                 }

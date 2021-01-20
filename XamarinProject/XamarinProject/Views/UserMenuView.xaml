@@ -28,7 +28,7 @@
                         <Grid HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center">
 
                             <boder:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50">
-                                <Image  Source="userAlt.png"/>
+                                <Image  Source="{Binding ImgPath}"/>
                             </boder:SfBorder>
 
                         </Grid>
