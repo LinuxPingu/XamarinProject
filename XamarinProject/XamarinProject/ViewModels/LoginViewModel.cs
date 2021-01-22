@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Realms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -125,6 +126,8 @@ namespace XamarinProject.ViewModels
 
                         Console.WriteLine("Configuracion guardada para: "+Settings.Email+", UID: "+Settings.UID);
 
+                        realRemember(user);
+
                         NavigationPage navigation = new NavigationPage(new LandingPageView());
                         App.Current.MainPage = new MasterDetailPage
                         {
@@ -154,6 +157,20 @@ namespace XamarinProject.ViewModels
         }
 
 
+
+        public void realRemember(UsersTable user)
+        {
+
+            var realm = Realm.GetInstance();
+            var registros = realm.All<UsersTable>();
+
+            realm.Write(() =>
+            {
+                realm.Add(new UsersTable {  UserID=user.UserID , Username = user.Username, Password=user.Password, Email=user.Email });
+            });
+
+
+        }
 
 
 

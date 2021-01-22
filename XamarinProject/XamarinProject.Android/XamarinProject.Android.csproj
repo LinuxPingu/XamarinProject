@@ -63,6 +63,9 @@
     <PackageReference Include="Plugin.Share">
       <Version>7.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Realm">
+      <Version>5.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit.Android">
       <Version>18.4.0.32</Version>
     </PackageReference>

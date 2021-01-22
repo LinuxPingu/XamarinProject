@@ -30,6 +30,7 @@
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
     <PackageReference Include="Google.Apis.FirebaseRealtimeDatabase.v1beta" Version="1.49.0.2171" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Realm" Version="5.1.2" />
     <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.32" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.32" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.4.0.32" />

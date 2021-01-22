@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Realms;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace XamarinProject.Models
 {
-    public class UsersTable
+    public class UsersTable:RealmObject
     {
 
         public string UserID { get; set; }
